@@ -1,0 +1,17 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 0;
+    background-color: #1e293b;
+    color: white;
+  }
+  
+  #header-links {
+    display: flex;
+    gap: 1rem;
+    margin-right: 6rem;
+  }
+  
+  #header-title {
+    margin-left: 6rem;
+  }
