@@ -1,6 +1,17 @@
+input {
+  border: none;
+  font-size: 48px;
+  text-align: center;
+}
+
 #document {
-    margin-top: 2rem;
-    width: 70%;
-    height: max-content;
-    background-color: white;
+  margin-top: 2rem;
+  width: 70%;
+  height: max-content;
+  background-color: white;
+}
+
+#name {
+  display: flex;
+  justify-content: center;
 }
