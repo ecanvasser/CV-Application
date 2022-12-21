@@ -3,10 +3,14 @@ import Document from "./Document";
 import "../styles/Content.css";
 
 class Content extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <main>
-        <Document />
+        <Document preview={this.props.preview} />
       </main>
     );
   }
