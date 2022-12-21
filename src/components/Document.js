@@ -8,6 +8,7 @@ class Document extends Component {
         <form id="name">
           <input type="text" placeholder="Name" />
         </form>
+        <div id="name-divider"></div>
       </div>
     );
   }
