@@ -31,8 +31,14 @@ input[placeholder="Name"] {
   margin: 1rem 1rem;
 }
 
-#name-divider {
-  width: 70%;
-  height: 0.4rem;
-  background-color: #1e293b;
+#edu-title {
+  margin: 1rem;
+  font-size: 28px;
+  font-weight: 900;
+}
+
+#education {
+  display: flex;
+  gap: 1rem;
+  margin-left: 1rem;
 }
