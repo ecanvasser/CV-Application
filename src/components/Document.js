@@ -7,12 +7,15 @@ class Document extends Component {
     super(props);
     this.state = {
       name: "",
+      email: "",
+      phone: "",
+      location: ""
     };
 
-    this.handleChange = this.handleChange.bind(this);
+    this.nameChange = this.nameChange.bind(this);
   }
 
-  handleChange(e) {
+  nameChange(e) {
     this.setState({ name: e.target.value });
   }
 
@@ -24,8 +27,31 @@ class Document extends Component {
             <input
               type="text"
               placeholder="Name"
-              onChange={this.handleChange}
+              onChange={this.nameChange}
               value={this.state.name}
+            />
+          </form>
+          <form id="contact">
+            <input
+              id="email" 
+              type="email"
+              placeholder="Email"
+              onChange={(e) => this.setState({email: e.target.value})}
+              value={this.state.email}
+            />
+            <input
+              id="phone"
+              type="phone"
+              placeholder="Phone"
+              onChange={(e) => this.setState({phone: e.target.value})}
+              value={this.state.phone}
+            />
+            <input
+              id="location"
+              type="text"
+              placeholder="City, State"
+              onChange={(e) => this.setState({location: e.target.value})}
+              value={this.state.location}
             />
           </form>
         </div>
@@ -33,7 +59,7 @@ class Document extends Component {
     }
     return (
       <div id="document">
-        <Preview name={this.state.name} />
+        <Preview data={this.state} />
       </div>
     );
   }

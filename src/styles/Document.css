@@ -1,6 +1,15 @@
-input {
+input[placeholder="Name"] {
   border: none;
   font-size: 48px;
+}
+
+#email {
+  border: none;
+  margin-left: 1rem;
+}
+
+#phone, #location {
+  border: none;
 }
 
 #document {
@@ -12,9 +21,14 @@ input {
   background-color: white;
 }
 
+#contact {
+  display: flex;
+  gap: 10px;
+}
+
 #name {
   display: flex;
-  margin: 1rem 3rem;
+  margin: 1rem 1rem;
 }
 
 #name-divider {
