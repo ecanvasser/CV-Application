@@ -9,7 +9,7 @@ class Preview extends Component {
   render() {
     return (
     <div id="preview">
-      <div id="name">{this.props.data.name}</div>
+      <div id="name-prev">{this.props.data.name}</div>
       <div id="contact-prev">
         <div id="email">{this.props.data.email}</div>
         <div id="phone">{this.props.data.phone}</div>
