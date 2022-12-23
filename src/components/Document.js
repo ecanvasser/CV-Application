@@ -7,6 +7,7 @@ class Document extends Component {
     super(props);
     this.state = {
       name: "",
+      role: "",
       email: "",
       phone: "",
       education: {
@@ -17,11 +18,12 @@ class Document extends Component {
       },
     };
 
-    this.nameChange = this.nameChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  nameChange(e) {
-    this.setState({ name: e.target.value });
+  handleChange(e) {
+    const value = e.target.value;
+    this.setState({ ...this.state, [e.target.name]: value });
   }
 
   render() {
@@ -32,8 +34,18 @@ class Document extends Component {
             <input
               type="text"
               placeholder="Name"
-              onChange={this.nameChange}
+              name="name"
+              onChange={this.handleChange}
               value={this.state.name}
+            />
+          </form>
+          <form>
+            <input
+              id="role-edit"
+              type="text"
+              placeholder="Current title"
+              onChange={(e) => this.setState({ role: e.target.value })}
+              value={this.state.role}
             />
           </form>
           <form id="contact">
@@ -59,7 +71,7 @@ class Document extends Component {
               value={this.state.location}
             />
           </form>
-          <div id="edu-title">Education</div>
+          <div id="edu-title-edit">Education</div>
           <form id="education">
             <input
               id="school"
