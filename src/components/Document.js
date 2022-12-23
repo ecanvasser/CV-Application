@@ -2,6 +2,7 @@ import { Component } from "react";
 import Preview from "./Preview";
 import GeneralForm from "./GeneralForm";
 import EducationForm from "./EducationForm";
+import SkillsForm from "./SkillsForm";
 import "../styles/Document.css";
 
 class Document extends Component {
@@ -18,10 +19,12 @@ class Document extends Component {
         degree: "",
         duration: "",
       },
+      skills: "",
     };
 
     this.handleGeneralChange = this.handleGeneralChange.bind(this);
     this.handleEducationChange = this.handleEducationChange.bind(this);
+    this.handleSkillsChange = this.handleSkillsChange.bind(this);
   }
 
   handleGeneralChange(e) {
@@ -37,6 +40,11 @@ class Document extends Component {
         [e.target.name]: value,
       },
     });
+  }
+
+  handleSkillsChange(e) {
+    const value = e.target.value;
+    this.setState({ ...this.state, [e.target.name]: value.split(', ') });
   }
 
   render() {
@@ -56,6 +64,10 @@ class Document extends Component {
             school={this.state.education.school}
             degree={this.state.education.degree}
             duration={this.state.education.duration}
+          />
+          <SkillsForm 
+            handleChange={this.handleSkillsChange}
+            skills={this.state.skills}
           />
         </div>
       );
