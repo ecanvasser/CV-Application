@@ -4,6 +4,14 @@ import '../styles/Preview.css'
 class Preview extends Component {
   constructor(props) {
     super(props);
+    this.renderSkills = this.renderSkills.bind(this);
+  }
+
+  renderSkills() {
+    let skills = this.props.data.skills;
+    skills.map((skill) => {
+      return <div className="skill-block">{skill}</div>
+    })
   }
 
   render() {
@@ -30,7 +38,11 @@ class Preview extends Component {
         </div>
         <div id="skill-half">
           <div id="skills-title">Skills</div>
-          <div id="skill-list"></div>
+          <div id="skill-list">
+            {this.props.data.skills.map((skill) => {
+              return <div className="skill-block">{skill}</div>
+            })}
+          </div>
         </div>
       </div>
 

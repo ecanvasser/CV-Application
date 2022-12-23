@@ -44,7 +44,7 @@ class Document extends Component {
 
   handleSkillsChange(e) {
     const value = e.target.value;
-    this.setState({ ...this.state, [e.target.name]: value.split(', ') });
+    this.setState({ ...this.state, [e.target.name]: value.split(',') });
   }
 
   render() {

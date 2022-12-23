@@ -18,11 +18,11 @@
 }
 
 #edu-half {
-  margin-left: 8rem;
+  margin-left: 2rem;
 }
 
 #skill-half {
-  margin-right: 12rem;
+  margin-right: 2rem;
 }
 
 #edu-details {
@@ -31,7 +31,6 @@
 }
 
 #edu-title {
-  /* margin: 1rem 0 1rem 3rem; */
   font-size: 28px;
   font-weight: 900;
 }
@@ -47,7 +46,20 @@
 }
 
 #edu-skills {
+  display: grid;
+  grid-template-columns: 0.55fr 0.45fr;
+  margin: 1rem 0 1rem 1rem;
+}
+
+#skill-list {
   display: flex;
-  justify-content: space-between;
-  margin: 1rem;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.skill-block {
+  padding: 3px 16px;
+  background-color: #06b6d4;
+  border-radius: 5px;
+  color: white;
 }
