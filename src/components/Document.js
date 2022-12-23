@@ -1,5 +1,6 @@
 import { Component } from "react";
 import Preview from "./Preview";
+import GeneralForm from "./GeneralForm";
 import "../styles/Document.css";
 
 class Document extends Component {
@@ -10,8 +11,8 @@ class Document extends Component {
       role: "",
       email: "",
       phone: "",
+      location: "",
       education: {
-        location: "",
         school: "",
         degree: "",
         duration: "",
@@ -30,47 +31,14 @@ class Document extends Component {
     if (this.props.preview === false) {
       return (
         <div id="document">
-          <form id="name">
-            <input
-              type="text"
-              placeholder="Name"
-              name="name"
-              onChange={this.handleChange}
-              value={this.state.name}
-            />
-          </form>
-          <form>
-            <input
-              id="role-edit"
-              type="text"
-              placeholder="Current title"
-              onChange={(e) => this.setState({ role: e.target.value })}
-              value={this.state.role}
-            />
-          </form>
-          <form id="contact">
-            <input
-              id="email"
-              type="email"
-              placeholder="Email"
-              onChange={(e) => this.setState({ email: e.target.value })}
-              value={this.state.email}
-            />
-            <input
-              id="phone"
-              type="phone"
-              placeholder="Phone"
-              onChange={(e) => this.setState({ phone: e.target.value })}
-              value={this.state.phone}
-            />
-            <input
-              id="location"
-              type="text"
-              placeholder="City, State"
-              onChange={(e) => this.setState({ location: e.target.value })}
-              value={this.state.location}
-            />
-          </form>
+          <GeneralForm 
+            handleChange={this.handleChange}
+            name={this.state.name}
+            role={this.state.role}
+            email={this.state.email}
+            phone={this.state.phone}
+            location={this.state.location}
+          />
           <div id="edu-title-edit">Education</div>
           <form id="education">
             <input
