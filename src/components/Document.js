@@ -3,6 +3,7 @@ import Preview from "./Preview";
 import GeneralForm from "./GeneralForm";
 import EducationForm from "./EducationForm";
 import SkillsForm from "./SkillsForm";
+import ExperienceForm from "./ExperienceForm";
 import "../styles/Document.css";
 
 class Document extends Component {
@@ -69,6 +70,7 @@ class Document extends Component {
             handleChange={this.handleSkillsChange}
             skills={this.state.skills}
           />
+          <ExperienceForm />
         </div>
       );
     }

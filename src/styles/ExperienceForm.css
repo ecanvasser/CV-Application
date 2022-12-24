@@ -1,0 +1,12 @@
+#experience-title {
+  font-size: 24px;
+  font-weight: 900;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+#add-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
