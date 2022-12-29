@@ -1,4 +1,5 @@
 import { Component } from "react";
+import ExperienceForm from "./ExperienceForm";
 import "../styles/Experience.css";
 
 class Experience extends Component {
@@ -13,7 +14,7 @@ class Experience extends Component {
         <div id="dynamic-form">
           {[...Array(this.props.count)].map((e) => {
             if (e !== 0) {
-              return <div>true</div>
+              return <ExperienceForm />
             }
           })}
         </div>
