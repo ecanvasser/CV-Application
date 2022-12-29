@@ -12,9 +12,12 @@ class Experience extends Component {
       <>
         <div id="experience-title">Experience</div>
         <div id="dynamic-form">
-          {[...Array(this.props.count)].map((e) => {
+          {[...Array(this.props.count)].map((e, i) => {
             if (e !== 0) {
-              return <ExperienceForm />
+              return <ExperienceForm
+              key={i} 
+              handleChange={this.props.handleChange}
+              />
             }
           })}
         </div>

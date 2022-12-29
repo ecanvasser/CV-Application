@@ -31,6 +31,7 @@ class Document extends Component {
     this.handleEducationChange = this.handleEducationChange.bind(this);
     this.handleSkillsChange = this.handleSkillsChange.bind(this);
     this.handleCount = this.handleCount.bind(this);
+    this.handleExperience = this.handleExperience.bind(this);
   }
 
   handleGeneralChange(e) {
@@ -63,6 +64,13 @@ class Document extends Component {
     });
   }
 
+  handleExperience(obj) {
+    let inputArr = this.state.experience.inputs;
+    this.setState({
+      inputs: { ...this.state.experience, ["inputs"]: inputArr.concat(obj) },
+    });
+  }
+
   render() {
     if (this.props.preview === false) {
       return (
@@ -87,6 +95,7 @@ class Document extends Component {
           />
           <Experience
             handleClick={this.handleCount}
+            handleChange={this.handleExperience}
             count={this.state.experience.count}
           />
         </div>
