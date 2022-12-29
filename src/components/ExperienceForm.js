@@ -35,7 +35,7 @@ class ExperienceForm extends Component {
             <input placeholder="Location" />
             <input placeholder="Start & End Date" />
             {[...Array(this.state.jobSummCount)].map((e) => {
-                return <input placeholder="Job Summary" />
+                return <input placeholder="Accomplishment/Task" />
             })}
             <input type="submit" hidden />
           </form>
