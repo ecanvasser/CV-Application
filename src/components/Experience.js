@@ -1,7 +1,7 @@
 import { Component } from "react";
-import "../styles/ExperienceForm.css";
+import "../styles/Experience.css";
 
-class ExperienceForm extends Component {
+class Experience extends Component {
   constructor(props) {
     super(props);
   }
@@ -10,12 +10,14 @@ class ExperienceForm extends Component {
     return (
       <>
         <div id="experience-title">Experience</div>
-        <div id="add-btn-container">
+        <div id="dynamic-form">
           {[...Array(this.props.count)].map((e) => {
             if (e !== 0) {
-              return "true";
+              return <div>true</div>
             }
           })}
+        </div>
+        <div id="add-btn-container">
           <button id="add-btn" onClick={() => this.props.handleClick()}>
             Add Experience
           </button>
@@ -25,4 +27,4 @@ class ExperienceForm extends Component {
   }
 }
 
-export default ExperienceForm;
+export default Experience;

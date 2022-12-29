@@ -3,7 +3,7 @@ import Preview from "./Preview";
 import GeneralForm from "./GeneralForm";
 import EducationForm from "./EducationForm";
 import SkillsForm from "./SkillsForm";
-import ExperienceForm from "./ExperienceForm";
+import Experience from "./Experience";
 import "../styles/Document.css";
 
 class Document extends Component {
@@ -88,7 +88,7 @@ class Document extends Component {
             handleChange={this.handleSkillsChange}
             skills={this.state.skills}
           />
-          <ExperienceForm 
+          <Experience
             handleClick={this.handleExperienceClick}
             count={this.state.experience.count}
           />
