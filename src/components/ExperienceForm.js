@@ -11,7 +11,14 @@ class ExperienceForm extends Component {
       <>
         <div id="experience-title">Experience</div>
         <div id="add-btn-container">
-          <button id="add-btn" onClick={() => this.props.handleClick()}>Add Experience</button>
+          {[...Array(this.props.count)].map((e) => {
+            if (e !== 0) {
+              return "true";
+            }
+          })}
+          <button id="add-btn" onClick={() => this.props.handleClick()}>
+            Add Experience
+          </button>
         </div>
       </>
     );

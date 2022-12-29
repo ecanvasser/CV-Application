@@ -22,7 +22,7 @@ class Document extends Component {
       },
       skills: "",
       experience: {
-        count: "0",
+        count: 0,
         row1: {
           employer: "",
           role: "",
