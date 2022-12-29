@@ -23,17 +23,14 @@ class Document extends Component {
       skills: "",
       experience: {
         count: 0,
-        row1: {
-          employer: "",
-          role: "",
-        },
+        inputs: [],
       },
     };
 
     this.handleGeneralChange = this.handleGeneralChange.bind(this);
     this.handleEducationChange = this.handleEducationChange.bind(this);
     this.handleSkillsChange = this.handleSkillsChange.bind(this);
-    this.handleExperienceClick = this.handleExperienceClick.bind(this);
+    this.handleCount = this.handleCount.bind(this);
   }
 
   handleGeneralChange(e) {
@@ -56,14 +53,14 @@ class Document extends Component {
     this.setState({ ...this.state, [e.target.name]: value.split(",") });
   }
 
-  handleExperienceClick() {
+  handleCount() {
     let count = parseInt(this.state.experience.count);
     if (count === 3) {
-      return
+      return;
     }
     this.setState({
-        experience: { ...this.state.experience, ["count"]: count+1 },
-      });
+      experience: { ...this.state.experience, ["count"]: count + 1 },
+    });
   }
 
   render() {
@@ -89,7 +86,7 @@ class Document extends Component {
             skills={this.state.skills}
           />
           <Experience
-            handleClick={this.handleExperienceClick}
+            handleClick={this.handleCount}
             count={this.state.experience.count}
           />
         </div>
