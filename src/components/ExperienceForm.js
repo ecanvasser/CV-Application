@@ -1,5 +1,5 @@
 import { Component } from "react";
-import '../styles/ExperienceForm.css'
+import "../styles/ExperienceForm.css";
 
 class ExperienceForm extends Component {
   constructor(props) {
@@ -11,11 +11,11 @@ class ExperienceForm extends Component {
       <>
         <div id="experience-title">Experience</div>
         <div id="add-btn-container">
-            <button id="add-btn">Add Experience</button>
+          <button id="add-btn" onClick={() => this.props.handleClick()}>Add Experience</button>
         </div>
       </>
     );
   }
 }
 
-export default ExperienceForm
+export default ExperienceForm;
