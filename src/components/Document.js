@@ -23,7 +23,7 @@ class Document extends Component {
       skills: "",
       experience: {
         count: 0,
-        inputs: [],
+        inputs: {},
       },
     };
 
@@ -60,14 +60,23 @@ class Document extends Component {
       return;
     }
     this.setState({
-      experience: { ...this.state.experience, ["count"]: count + 1 },
+      experience: { ...this.state.experience, count: count + 1 },
     });
   }
 
-  handleExperience(obj) {
-    let inputArr = this.state.experience.inputs;
+  handleExperience(e) {
+    let value = e.target.value;
+    let i = parseInt(e.target.id);
     this.setState({
-      inputs: { ...this.state.experience, ["inputs"]: inputArr.concat(obj) },
+      experience: {
+        ...this.state.experience,
+        inputs: {
+          ...this.state.experience.inputs,
+          [i]: Object.assign({}, this.state.experience.inputs[i], {
+            [e.target.name]: value,
+          }),
+        },
+      },
     });
   }
 

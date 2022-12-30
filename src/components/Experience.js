@@ -3,10 +3,6 @@ import ExperienceForm from "./ExperienceForm";
 import "../styles/Experience.css";
 
 class Experience extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <>
@@ -14,10 +10,13 @@ class Experience extends Component {
         <div id="dynamic-form">
           {[...Array(this.props.count)].map((e, i) => {
             if (e !== 0) {
-              return <ExperienceForm
-              key={i} 
-              handleChange={this.props.handleChange}
-              />
+              return (
+                <ExperienceForm
+                  key={i}
+                  id={i}
+                  handleChange={this.props.handleChange}
+                />
+              );
             }
           })}
         </div>
