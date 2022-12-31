@@ -32,6 +32,7 @@ class Document extends Component {
     this.handleSkillsChange = this.handleSkillsChange.bind(this);
     this.handleCount = this.handleCount.bind(this);
     this.handleExp = this.handleExp.bind(this);
+    this.handleExpTasks = this.handleExpTasks.bind(this);
   }
 
   handleGeneralChange(e) {
@@ -80,6 +81,25 @@ class Document extends Component {
     });
   }
 
+  handleExpTasks(e) {
+    let value = e.target.value;
+    let i = e.target.id;
+    this.setState({
+      experience: {
+        ...this.state.experience,
+        inputs: {
+          ...this.state.experience.inputs,
+          [i]: {
+            ...this.state.experience.inputs[i],
+            tasks: Object.assign({}, this.state.experience.inputs[i].tasks, {
+              [e.target.name]: value,
+            }),
+          },
+        },
+      },
+    });
+  }
+
   render() {
     if (this.props.preview === false) {
       return (
@@ -104,7 +124,8 @@ class Document extends Component {
           />
           <Experience
             handleClick={this.handleCount}
-            handleChange={this.handleExp}
+            handleExp={this.handleExp}
+            handleExpTasks={this.handleExpTasks}
             count={this.state.experience.count}
           />
         </div>

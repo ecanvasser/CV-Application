@@ -14,7 +14,8 @@ class Experience extends Component {
                 <ExperienceForm
                   key={i}
                   id={i}
-                  handleChange={this.props.handleChange}
+                  handleExp={this.props.handleExp}
+                  handleExpTasks={this.props.handleExpTasks}
                 />
               );
             }
