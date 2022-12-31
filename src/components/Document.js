@@ -31,7 +31,7 @@ class Document extends Component {
     this.handleEducationChange = this.handleEducationChange.bind(this);
     this.handleSkillsChange = this.handleSkillsChange.bind(this);
     this.handleCount = this.handleCount.bind(this);
-    this.handleExperience = this.handleExperience.bind(this);
+    this.handleExp = this.handleExp.bind(this);
   }
 
   handleGeneralChange(e) {
@@ -64,7 +64,7 @@ class Document extends Component {
     });
   }
 
-  handleExperience(e) {
+  handleExp(e) {
     let value = e.target.value;
     let i = parseInt(e.target.id);
     this.setState({
@@ -104,7 +104,7 @@ class Document extends Component {
           />
           <Experience
             handleClick={this.handleCount}
-            handleChange={this.handleExperience}
+            handleChange={this.handleExp}
             count={this.state.experience.count}
           />
         </div>

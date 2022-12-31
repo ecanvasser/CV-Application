@@ -14,43 +14,21 @@ class ExperienceForm extends Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleInput = this.handleInput.bind(this);
-    this.handleTasks = this.handleTasks.bind(this);
   }
 
-  handleSubmit = () => {
+  handleSubmit = (e) => {
     let count = this.state.jobSummCount;
-
     if (count < 3) {
       this.setState({ ...this.state, jobSummCount: count + 1 });
     }
+    e.preventDefault();
   };
-
-  handleInput = (e) => {
-    let value = e.target.value;
-    this.setState({ ...this.state, [e.target.name]: value });
-    this.props.handleChange({...this.state});
-  };
-
-  handleTasks = (e) => {
-    let value = e.target.value;
-    let id = e.target.id;
-    this.setState({ tasks: {...this.state.tasks, [id]: value} });
-
-    this.props.handleChange();
-  }
 
   render() {
     return (
       <>
         <div id="exp-form">
-          <form
-            id="form"
-            onSubmit={(e) => {
-              this.handleSubmit();
-              e.preventDefault();
-            }}
-          >
+          <form id="form" onSubmit={this.handleSubmit}>
             <input
               name="company"
               id={this.props.id}
