@@ -4,15 +4,17 @@ import "../styles/ExperiencePreview.css";
 class ExperiencePreview extends Component {
   render() {
     return (
-      <>
-        <div className="company-name">{this.props.company}</div>
-        <div>{this.props.dates}</div>
-        <div>{this.props.location}</div>
-        <div>{this.props.title}</div>
+      <div className="prevExp-block">
+        <div className="top-row">
+            <div className="company-name">{this.props.company}</div>
+            <div className="job-length">{this.props.dates}</div>
+        </div>
+        <div className="job-title">{this.props.title}</div> 
+        <div className="job-location">{this.props.location}</div>
         {(Array.from(Object.values(this.props.tasks))).map((e) => {
-            return <div>{e}</div>
+            return <div className="job-task">{e}</div>
         })}
-      </>
+      </div>
     );
   }
 }

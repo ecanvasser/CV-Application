@@ -46,6 +46,7 @@ class Preview extends Component {
           </div>
         </div>
         <div id="divider"></div>
+        <div id="exp-title">Experience</div>
         {Array.from(Object.values(this.props.data.experience.inputs)).map(
           (e) => {
             return <ExperiencePreview 

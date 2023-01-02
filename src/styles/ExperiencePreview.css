@@ -1,0 +1,26 @@
+.top-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.prevExp-block {
+    margin: 1rem 7rem;
+    padding-bottom: 15px;
+    border-bottom: 1px #cbd5e1 solid;
+}
+
+.company-name {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.job-length {
+    font-style: italic;
+    font-weight: 700;
+}
+
+.job-title {
+    font-weight: 700;
+    font-size: 18px;
+}
