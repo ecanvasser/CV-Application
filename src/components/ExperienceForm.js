@@ -6,11 +6,6 @@ class ExperienceForm extends Component {
     super(props);
     this.state = {
       jobSummCount: 1,
-      company: "",
-      title: "",
-      location: "",
-      dates: "",
-      tasks: {},
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
