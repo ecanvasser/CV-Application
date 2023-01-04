@@ -16,6 +16,7 @@ class Experience extends Component {
                   id={i}
                   handleExp={this.props.handleExp}
                   handleExpTasks={this.props.handleExpTasks}
+                  inputs={this.props.inputs[i] || ''}
                 />
               );
             }

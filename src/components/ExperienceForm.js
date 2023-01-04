@@ -29,24 +29,28 @@ class ExperienceForm extends Component {
               id={this.props.id}
               placeholder="Company"
               onChange={this.props.handleExp}
+              value={this.props.inputs["company"] || ""}
             />
             <input
               name="title"
               id={this.props.id}
               placeholder="Job Title"
               onChange={this.props.handleExp}
+              value={this.props.inputs["title"] || ""}
             />
             <input
               name="location"
               id={this.props.id}
               placeholder="Location"
               onChange={this.props.handleExp}
+              value={this.props.inputs["location"] || ""}
             />
             <input
               name="dates"
               id={this.props.id}
               placeholder="Start & End Date"
               onChange={this.props.handleExp}
+              value={this.props.inputs["dates"] || ""}
             />
             {[...Array(this.state.jobSummCount)].map((e, i) => {
               return (
@@ -56,6 +60,7 @@ class ExperienceForm extends Component {
                   name={i}
                   placeholder="Accomplishment/Task"
                   onChange={this.props.handleExpTasks}
+                  value={this.props.inputs.tasks ? this.props.inputs.tasks[i] : ""}
                 />
               );
             })}

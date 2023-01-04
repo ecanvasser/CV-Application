@@ -127,6 +127,7 @@ class Document extends Component {
             handleExp={this.handleExp}
             handleExpTasks={this.handleExpTasks}
             count={this.state.experience.count}
+            inputs={this.state.experience.inputs}
           />
         </div>
       );
