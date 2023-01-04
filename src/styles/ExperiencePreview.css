@@ -1,24 +1,32 @@
 .top-row {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .prevExp-block {
-    margin: 1rem 7rem;
+  margin: 1rem 7rem;
 }
 
 .company-name {
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 5px;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 5px;
 }
 
 .job-length {
-    font-style: italic;
-    font-weight: 700;
+  font-style: italic;
+  font-weight: 700;
 }
 
 .job-title {
-    font-weight: 700;
-    font-size: 18px;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.job-location {
+  margin-bottom: 5px;
+}
+
+.task-dash {
+    color: #06b6d4;
 }
