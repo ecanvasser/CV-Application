@@ -62,3 +62,9 @@
   border-radius: 5px;
   color: white;
 }
+
+.prevExp-block:nth-child(2),
+.prevExp-block:nth-child(3) {
+  border-top: 1px #cbd5e1 solid;
+  padding-top: 15px;
+}
