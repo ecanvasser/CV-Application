@@ -29,4 +29,11 @@
 
 .task-dash {
     color: #06b6d4;
+    font-size: 30px;
+    margin-right: 5px;
+}
+
+.job-task {
+    display: flex;
+    align-items: center;
 }
