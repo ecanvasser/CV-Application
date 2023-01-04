@@ -18,7 +18,7 @@ class Experience extends Component {
                   handleExpTasks={this.props.handleExpTasks}
                   handleTaskCount={this.props.handleTaskCount}
                   taskCount={this.props.taskCount[i]}
-                  inputs={this.props.inputs[i] || ''}
+                  inputs={this.props.inputs[i] || ""}
                 />
               );
             }

@@ -6,7 +6,12 @@ class ExperienceForm extends Component {
     return (
       <>
         <div id="exp-form">
-          <form id="form" onSubmit={(e) => {this.props.handleTaskCount(this.props.id, e)}}>
+          <form
+            id="form"
+            onSubmit={(e) => {
+              this.props.handleTaskCount(this.props.id, e);
+            }}
+          >
             <input
               name="company"
               id={this.props.id}
