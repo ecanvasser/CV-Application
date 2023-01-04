@@ -10,8 +10,3 @@
   justify-content: center;
   margin-top: 1rem;
 }
-
-#dynamic-form {
-  display: flex;
-  flex-direction: column;
-}

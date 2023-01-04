@@ -1,21 +1,29 @@
 input[placeholder="Name"] {
   border: none;
-  font-size: 48px;
+  font-size: 38px;
+}
+
+#role-edit {
+  border: none;
+  border-bottom: 1px solid #cbd5e1;
 }
 
 #email {
   border: none;
   margin-left: 1rem;
+  border-bottom: 1px solid #cbd5e1;
+  padding-bottom: 2px;
 }
 
 #phone, #location {
   border: none;
+  border-bottom: 1px solid #cbd5e1;
 }
 
 #document {
   display: flex;
   flex-direction: column;
-  margin-top: 2rem;
+  margin-bottom: 2rem;
   width: 60%;
   height: max-content;
   background-color: white;
@@ -25,6 +33,7 @@ input[placeholder="Name"] {
 #contact {
   display: flex;
   gap: 10px;
+  margin-top: 1rem;
 }
 
 #name {

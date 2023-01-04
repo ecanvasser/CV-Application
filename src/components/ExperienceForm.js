@@ -5,15 +5,16 @@ class ExperienceForm extends Component {
   render() {
     return (
       <>
-        <div id="exp-form">
+        <div className="exp-form">
           <form
-            id="form"
+            className="form"
             onSubmit={(e) => {
               this.props.handleTaskCount(this.props.id, e);
             }}
           >
             <input
               name="company"
+              className="company"
               id={this.props.id}
               placeholder="Company"
               onChange={this.props.handleExp}
@@ -21,6 +22,7 @@ class ExperienceForm extends Component {
             />
             <input
               name="title"
+              className="title"
               id={this.props.id}
               placeholder="Job Title"
               onChange={this.props.handleExp}
@@ -28,6 +30,7 @@ class ExperienceForm extends Component {
             />
             <input
               name="location"
+              className="location"
               id={this.props.id}
               placeholder="Location"
               onChange={this.props.handleExp}
@@ -35,6 +38,7 @@ class ExperienceForm extends Component {
             />
             <input
               name="dates"
+              className="dates"
               id={this.props.id}
               placeholder="Start & End Date"
               onChange={this.props.handleExp}
@@ -46,6 +50,7 @@ class ExperienceForm extends Component {
                   key={i}
                   id={this.props.id}
                   name={i}
+                  className="job-task"
                   placeholder="Accomplishment/Task"
                   onChange={this.props.handleExpTasks}
                   value={

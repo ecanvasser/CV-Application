@@ -1,6 +1,8 @@
 body {
-  height: 100vh;
+  height: 100%;
+  background-color: #cbd5e1;
   margin: 0;
+  padding-bottom: 3rem;
 }
 
 #app {
