@@ -23,6 +23,7 @@ class Document extends Component {
       skills: "",
       experience: {
         count: 0,
+        taskCount: { 0: 1, 1: 1, 2: 1 },
         inputs: {},
       },
     };
@@ -33,6 +34,7 @@ class Document extends Component {
     this.handleCount = this.handleCount.bind(this);
     this.handleExp = this.handleExp.bind(this);
     this.handleExpTasks = this.handleExpTasks.bind(this);
+    this.handleTaskCount = this.handleTaskCount.bind(this);
   }
 
   handleGeneralChange(e) {
@@ -82,7 +84,7 @@ class Document extends Component {
   }
 
   handleExpTasks(e) {
-    let value = e.target.value;
+    let value = e.target.value || "";
     let i = e.target.id;
     this.setState({
       experience: {
@@ -98,6 +100,21 @@ class Document extends Component {
         },
       },
     });
+  }
+
+  handleTaskCount(i, e) {
+    let count = parseInt(this.state.experience.taskCount[i]);
+    if (count < 3) {
+      this.setState({
+        experience: {
+          ...this.state.experience,
+          taskCount: Object.assign({}, this.state.experience.taskCount, {
+            [i]: count + 1,
+          }),
+        },
+      });
+    }
+    e.preventDefault();
   }
 
   render() {
@@ -126,7 +143,9 @@ class Document extends Component {
             handleClick={this.handleCount}
             handleExp={this.handleExp}
             handleExpTasks={this.handleExpTasks}
+            handleTaskCount={this.handleTaskCount}
             count={this.state.experience.count}
+            taskCount={this.state.experience.taskCount}
             inputs={this.state.experience.inputs}
           />
         </div>

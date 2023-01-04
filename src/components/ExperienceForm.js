@@ -2,28 +2,11 @@ import { Component } from "react";
 import "../styles/ExperienceForm.css";
 
 class ExperienceForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      jobSummCount: 1,
-    };
-
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleSubmit = (e) => {
-    let count = this.state.jobSummCount;
-    if (count < 3) {
-      this.setState({ ...this.state, jobSummCount: count + 1 });
-    }
-    e.preventDefault();
-  };
-
   render() {
     return (
       <>
         <div id="exp-form">
-          <form id="form" onSubmit={this.handleSubmit}>
+          <form id="form" onSubmit={(e) => {this.props.handleTaskCount(this.props.id, e)}}>
             <input
               name="company"
               id={this.props.id}
@@ -52,7 +35,7 @@ class ExperienceForm extends Component {
               onChange={this.props.handleExp}
               value={this.props.inputs["dates"] || ""}
             />
-            {[...Array(this.state.jobSummCount)].map((e, i) => {
+            {[...Array(this.props.taskCount)].map((e, i) => {
               return (
                 <input
                   key={i}
@@ -60,7 +43,9 @@ class ExperienceForm extends Component {
                   name={i}
                   placeholder="Accomplishment/Task"
                   onChange={this.props.handleExpTasks}
-                  value={this.props.inputs.tasks ? this.props.inputs.tasks[i] : ""}
+                  value={
+                    this.props.inputs.tasks ? this.props.inputs.tasks[i] : ""
+                  }
                 />
               );
             })}
