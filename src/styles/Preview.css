@@ -74,8 +74,8 @@
   padding-top: 15px;
 }
 
-#location-prev {
+#location-prev, #email-prev, #phone-prev {
   display: flex;
   align-items: center;
-  gap: 3px;
+  gap: 5px;
 }

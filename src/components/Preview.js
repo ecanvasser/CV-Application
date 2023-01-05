@@ -2,6 +2,8 @@ import { Component } from "react";
 import "../styles/Preview.css";
 import ExperiencePreview from "./ExperiencePreview";
 import { MdLocationOn } from "react-icons/md";
+import { MdEmail } from "react-icons/md";
+import { MdSmartphone } from "react-icons/md";
 import { IconContext } from "react-icons";
 
 class Preview extends Component {
@@ -24,8 +26,22 @@ class Preview extends Component {
         <div id="role">{this.props.data.role}</div>
         <div id="divider"></div>
         <div id="contact-prev">
-          <div id="email-prev">{this.props.data.email}</div>
-          <div id="phone-prev">{this.props.data.phone}</div>
+          <div id="email-prev">
+            <IconContext.Provider value={{ color: "#06b6d4", size: "1.4em" }}>
+              <div>
+                <MdEmail />
+              </div>
+            </IconContext.Provider>
+            {this.props.data.email}
+          </div>
+          <div id="phone-prev">
+          <IconContext.Provider value={{ color: "#06b6d4", size: "1.4em" }}>
+              <div>
+                <MdSmartphone />
+              </div>
+            </IconContext.Provider>
+            {this.props.data.phone}
+            </div>
           <div id="location-prev">
             <IconContext.Provider value={{ color: "#06b6d4", size: "1.4em" }}>
               <div>
