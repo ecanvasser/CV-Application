@@ -11,8 +11,12 @@ class Header extends Component {
       <header>
         <div id="header-title">CV App</div>
         <div id="header-links">
-          <button onClick={() => this.props.changeEdit()}>Edit</button>
-          <button onClick={() => this.props.changePreview()}>Preview</button>
+          <button onClick={() => this.props.changeEdit()} id="edit-btn">
+            Edit
+          </button>
+          <button onClick={() => this.props.changePreview()} id="prev-btn">
+            Preview
+          </button>
         </div>
       </header>
     );

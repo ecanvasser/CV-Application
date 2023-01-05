@@ -1,6 +1,8 @@
 #preview {
   background-color: white;
   width: 55%;
+  position: absolute;
+  top: 8rem;
 }
 
 #name-prev {

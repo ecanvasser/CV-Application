@@ -1,12 +1,13 @@
 body {
   background-color: #cbd5e1;
   margin: 0;
-  height: max-content;
+  height: 100vh;
 }
 
 #app {
   display: grid;
-  grid-template-rows: 1fr 12fr;
+  grid-template-rows: 400px 650px;
+  position: relative;
 }
 
 
