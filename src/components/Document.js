@@ -152,9 +152,9 @@ class Document extends Component {
       );
     }
     return (
-      <div id="document">
+      <>
         <Preview data={this.state} />
-      </div>
+      </>
     );
   }
 }

@@ -22,18 +22,18 @@ class Preview extends Component {
         <div id="role">{this.props.data.role}</div>
         <div id="divider"></div>
         <div id="contact-prev">
-          <div id="email">{this.props.data.email}</div>
-          <div id="phone">{this.props.data.phone}</div>
-          <div id="location">{this.props.data.location}</div>
+          <div id="email-prev">{this.props.data.email}</div>
+          <div id="phone-prev">{this.props.data.phone}</div>
+          <div id="location-prev">{this.props.data.location}</div>
         </div>
         <div id="divider"></div>
         <div id="edu-skills">
           <div id="edu-half">
             <div id="edu-title">Education</div>
             <div id="edu-details">
-              <div id="school">{this.props.data.education.school}</div>
-              <div id="degree">{this.props.data.education.degree}</div>
-              <div id="startend">{this.props.data.education.duration}</div>
+              <div id="school-prev">{this.props.data.education.school}</div>
+              <div id="degree-prev">{this.props.data.education.degree}</div>
+              <div id="startend-prev">{this.props.data.education.duration}</div>
             </div>
           </div>
           <div id="skill-half">

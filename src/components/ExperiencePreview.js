@@ -12,7 +12,7 @@ class ExperiencePreview extends Component {
         <div className="job-title">{this.props.title}</div> 
         <div className="job-location">{this.props.location}</div>
         {(Array.from(Object.values(this.props.tasks))).map((e) => {
-            return <div className="job-task"><div className="task-dash">-</div>{e}</div>
+            return <div className="jobtask-prev"><div className="task-dash">-</div>{e}</div>
         })}
       </div>
     );
