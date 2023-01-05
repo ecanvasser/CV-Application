@@ -23,8 +23,7 @@ input[placeholder="Name"] {
 #document {
   display: flex;
   flex-direction: column;
-  margin-bottom: 2rem;
-  width: 60%;
+  width: max-content;
   height: max-content;
   background-color: white;
   padding-bottom: 1rem;
