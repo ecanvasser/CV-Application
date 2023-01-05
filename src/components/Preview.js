@@ -1,6 +1,8 @@
 import { Component } from "react";
 import "../styles/Preview.css";
 import ExperiencePreview from "./ExperiencePreview";
+import { MdLocationOn } from "react-icons/md";
+import { IconContext } from "react-icons";
 
 class Preview extends Component {
   constructor(props) {
@@ -24,7 +26,14 @@ class Preview extends Component {
         <div id="contact-prev">
           <div id="email-prev">{this.props.data.email}</div>
           <div id="phone-prev">{this.props.data.phone}</div>
-          <div id="location-prev">{this.props.data.location}</div>
+          <div id="location-prev">
+            <IconContext.Provider value={{ color: "#06b6d4", size: "1.4em" }}>
+              <div>
+                <MdLocationOn />
+              </div>
+            </IconContext.Provider>
+            {this.props.data.location}
+          </div>
         </div>
         <div id="divider"></div>
         <div id="edu-skills">
@@ -49,16 +58,18 @@ class Preview extends Component {
         <div id="exp-title">Experience</div>
         <div id="prevExp">
           {Array.from(Object.values(this.props.data.experience.inputs)).map(
-          (e) => {
-            return <ExperiencePreview 
-            company={e["company"]} 
-            dates={e["dates"]}
-            location={e["location"]}
-            title={e["title"]}
-            tasks={e["tasks"]}
-            />;
-          }
-        )}
+            (e) => {
+              return (
+                <ExperiencePreview
+                  company={e["company"]}
+                  dates={e["dates"]}
+                  location={e["location"]}
+                  title={e["title"]}
+                  tasks={e["tasks"]}
+                />
+              );
+            }
+          )}
         </div>
       </div>
     );
