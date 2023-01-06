@@ -27,7 +27,7 @@ class Preview extends Component {
         <div id="divider"></div>
         <div id="contact-prev">
           <div id="email-prev">
-            <IconContext.Provider value={{ color: "#06b6d4", size: "1.4em" }}>
+            <IconContext.Provider value={{ color: "#0891b2", size: "1.4em" }}>
               <div>
                 <MdEmail />
               </div>
@@ -35,7 +35,7 @@ class Preview extends Component {
             {this.props.data.email}
           </div>
           <div id="phone-prev">
-          <IconContext.Provider value={{ color: "#06b6d4", size: "1.4em" }}>
+          <IconContext.Provider value={{ color: "#0891b2", size: "1.4em" }}>
               <div>
                 <MdSmartphone />
               </div>
@@ -43,7 +43,7 @@ class Preview extends Component {
             {this.props.data.phone}
             </div>
           <div id="location-prev">
-            <IconContext.Provider value={{ color: "#06b6d4", size: "1.4em" }}>
+            <IconContext.Provider value={{ color: "#0891b2", size: "1.4em" }}>
               <div>
                 <MdLocationOn />
               </div>

@@ -3,6 +3,10 @@ input[placeholder="Name"] {
   font-size: 38px;
 }
 
+input, textarea {
+  font-family: 'Ubuntu Mono';
+}
+
 #role-edit {
   border: none;
   border-bottom: 1px solid #cbd5e1;
@@ -30,6 +34,7 @@ input[placeholder="Name"] {
   position: absolute;
   top: 8rem;
   box-shadow: 2px 2px 5px gray;
+  font-family: 'Ubuntu Mono';
 }
 
 #contact {
@@ -58,4 +63,13 @@ input[placeholder="Name"] {
   display: flex;
   gap: 1rem;
   margin-left: 1rem;
+}
+
+#add-btn {
+  font-family: 'Ubuntu Mono';
+  color: white;
+  background-color: #0891b2;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 8px;
 }
