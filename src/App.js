@@ -1,38 +1,25 @@
-import "./styles/App.css";
-import { Component } from "react";
 import Header from "./components/Header";
 import Content from "./components/Content";
+import { useState } from "react";
+import "./styles/App.css";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      preview: false,
-    };
+const App = () => {
+  const [preview, setPreview] = useState(false);
 
-    this.changePreview = this.changePreview.bind(this);
-    this.changeEdit = this.changeEdit.bind(this);
-  }
-
-  changePreview = () => {
-    this.setState({ preview: true });
+  const changePreview = () => {
+    setPreview(true);
   };
 
-  changeEdit = () => {
-    this.setState({ preview: false });
+  const changeEdit = () => {
+    setPreview(false);
   };
 
-  render() {
-    return (
-      <div id="app">
-        <Header
-          changePreview={this.changePreview}
-          changeEdit={this.changeEdit}
-        />
-        <Content preview={this.state.preview} />
-      </div>
-    );
-  }
-}
+  return (
+    <div id="app">
+      <Header changePreview={changePreview} changeEdit={changeEdit} />
+      <Content preview={preview} />
+    </div>
+  );
+};
 
 export default App;
