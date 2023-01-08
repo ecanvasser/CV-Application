@@ -1,37 +1,34 @@
-import { Component } from "react";
 import ExperienceForm from "./ExperienceForm";
 import "../styles/Experience.css";
 
-class Experience extends Component {
-  render() {
-    return (
-      <>
-        <div id="experience-title">Experience</div>
-        <div id="dynamic-form">
-          {[...Array(this.props.count)].map((e, i) => {
-            if (e !== 0) {
-              return (
-                <ExperienceForm
-                  key={i}
-                  id={i}
-                  handleExp={this.props.handleExp}
-                  handleExpTasks={this.props.handleExpTasks}
-                  handleTaskCount={this.props.handleTaskCount}
-                  taskCount={this.props.taskCount[i]}
-                  inputs={this.props.inputs[i] || ""}
-                />
-              );
-            }
-          })}
-        </div>
-        <div id="add-btn-container">
-          <button id="add-btn" onClick={() => this.props.handleClick()}>
-            Add Experience
-          </button>
-        </div>
-      </>
-    );
-  }
+const Experience = (props) => {
+  return (
+    <>
+      <div id="experience-title">Experience</div>
+      <div id="dynamic-form">
+        {[...Array(props.count)].map((e, i) => {
+          if (e !== 0) {
+            return (
+              <ExperienceForm
+                key={i}
+                id={i}
+                handleExp={props.handleExp}
+                handleExpTasks={props.handleExpTasks}
+                handleTaskCount={props.handleTaskCount}
+                taskCount={props.taskCount[i]}
+                inputs={props.inputs[i] || ""}
+              />
+            );
+          }
+        })}
+      </div>
+      <div id="add-btn-container">
+        <button id="add-btn" onClick={() => props.handleClick()}>
+          Add Experience
+        </button>
+      </div>
+    </>
+  );
 }
 
 export default Experience;
