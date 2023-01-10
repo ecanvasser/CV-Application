@@ -1,4 +1,4 @@
-import { Component } from "react";
+import { useState } from "react";
 import Preview from "./Preview";
 import GeneralForm from "./GeneralForm";
 import EducationForm from "./EducationForm";
@@ -6,157 +6,135 @@ import SkillsForm from "./SkillsForm";
 import Experience from "./Experience";
 import "../styles/Document.css";
 
-class Document extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "",
-      role: "",
-      email: "",
-      phone: "",
-      location: "",
-      education: {
-        school: "",
-        degree: "",
-        duration: "",
-      },
-      skills: "",
-      experience: {
-        count: 0,
-        taskCount: { 0: 1, 1: 1, 2: 1 },
-        inputs: {},
-      },
-    };
+const Document = (props) => {
+  const [general, setGeneral] = useState({
+    name: "",
+    role: "",
+    email: "",
+    phone: "",
+    location: "",
+  });
+  const [education, setEducation] = useState({
+    school: "",
+    degree: "",
+    duration: "",
+  });
+  const [skills, setSkills] = useState();
+  const [experience, setExperience] = useState({
+    count: 0,
+    taskCount: { 0: 1, 1: 1, 2: 1 },
+    inputs: {},
+  });
 
-    this.handleGeneralChange = this.handleGeneralChange.bind(this);
-    this.handleEducationChange = this.handleEducationChange.bind(this);
-    this.handleSkillsChange = this.handleSkillsChange.bind(this);
-    this.handleCount = this.handleCount.bind(this);
-    this.handleExp = this.handleExp.bind(this);
-    this.handleExpTasks = this.handleExpTasks.bind(this);
-    this.handleTaskCount = this.handleTaskCount.bind(this);
-  }
-
-  handleGeneralChange(e) {
+  const handleGeneralChange = (e) => {
     const value = e.target.value;
-    this.setState({ ...this.state, [e.target.name]: value });
-  }
+    setGeneral(Object.assign({}, general, { [e.target.name]: value }));
+  };
 
-  handleEducationChange(e) {
+  const handleEducationChange = (e) => {
     const value = e.target.value;
-    this.setState({
-      education: {
-        ...this.state.education,
-        [e.target.name]: value,
-      },
-    });
-  }
+    setEducation(Object.assign({}, education, { [e.target.name]: value }));
+  };
 
-  handleSkillsChange(e) {
+  const handleSkillsChange = (e) => {
     const value = e.target.value;
-    this.setState({ ...this.state, [e.target.name]: value.split(",") });
-  }
+    setSkills(value.split(","));
+  };
 
-  handleCount() {
-    let count = parseInt(this.state.experience.count);
-    if (count === 3) {
+  const handleCount = () => {
+    if (experience.count === 3) {
       return;
     }
-    this.setState({
-      experience: { ...this.state.experience, count: count + 1 },
-    });
-  }
+    setExperience(
+      Object.assign({}, experience, { count: experience.count + 1 })
+    );
+  };
 
-  handleExp(e) {
-    let value = e.target.value;
-    let i = parseInt(e.target.id);
-    this.setState({
-      experience: {
-        ...this.state.experience,
-        inputs: {
-          ...this.state.experience.inputs,
-          [i]: Object.assign({}, this.state.experience.inputs[i], {
+  const handleExp = (e) => {
+    const value = e.target.value;
+    const i = parseInt(e.target.id);
+    setExperience((prevExperience) => ({
+      ...prevExperience,
+      inputs: {
+        ...prevExperience.inputs,
+        [i]: Object.assign({}, experience.inputs[i], {
+          [e.target.name]: value,
+        }),
+      },
+    }));
+  };
+
+  const handleTaskCount = (i, e) => {
+    let count = parseInt(experience.taskCount[i]);
+    if (count < 3) {
+      setExperience((prevExperience) => ({
+        ...prevExperience,
+        taskCount: {
+          ...prevExperience.taskCount,
+          [i]: count + 1,
+        },
+      }));
+    }
+    e.preventDefault();
+  };
+
+  const handleExpTasks = (e) => {
+    let value = e.target.value || "";
+    let i = e.target.id;
+    setExperience((prevExperience) => ({
+      ...prevExperience,
+      inputs: {
+        ...prevExperience.inputs,
+        [i]: {
+          ...prevExperience.inputs[i],
+          tasks: Object.assign({}, experience.inputs[i].tasks, {
             [e.target.name]: value,
           }),
         },
       },
-    });
-  }
+    }));
+  };
 
-  handleExpTasks(e) {
-    let value = e.target.value || "";
-    let i = e.target.id;
-    this.setState({
-      experience: {
-        ...this.state.experience,
-        inputs: {
-          ...this.state.experience.inputs,
-          [i]: {
-            ...this.state.experience.inputs[i],
-            tasks: Object.assign({}, this.state.experience.inputs[i].tasks, {
-              [e.target.name]: value,
-            }),
-          },
-        },
-      },
-    });
-  }
-
-  handleTaskCount(i, e) {
-    let count = parseInt(this.state.experience.taskCount[i]);
-    if (count < 3) {
-      this.setState({
-        experience: {
-          ...this.state.experience,
-          taskCount: Object.assign({}, this.state.experience.taskCount, {
-            [i]: count + 1,
-          }),
-        },
-      });
-    }
-    e.preventDefault();
-  }
-
-  render() {
-    if (this.props.preview === false) {
-      return (
-        <div id="document">
-          <GeneralForm
-            handleChange={this.handleGeneralChange}
-            name={this.state.name}
-            role={this.state.role}
-            email={this.state.email}
-            phone={this.state.phone}
-            location={this.state.location}
-          />
-          <EducationForm
-            handleChange={this.handleEducationChange}
-            school={this.state.education.school}
-            degree={this.state.education.degree}
-            duration={this.state.education.duration}
-          />
-          <SkillsForm
-            handleChange={this.handleSkillsChange}
-            skills={this.state.skills}
-          />
-          <Experience
-            handleClick={this.handleCount}
-            handleExp={this.handleExp}
-            handleExpTasks={this.handleExpTasks}
-            handleTaskCount={this.handleTaskCount}
-            count={this.state.experience.count}
-            taskCount={this.state.experience.taskCount}
-            inputs={this.state.experience.inputs}
-          />
-        </div>
-      );
-    }
+  if (props.preview === false) {
     return (
-      <>
-        <Preview data={this.state} />
-      </>
+      <div id="document">
+        <GeneralForm
+          handleChange={handleGeneralChange}
+          name={general.name}
+          role={general.role}
+          email={general.email}
+          phone={general.phone}
+          location={general.location}
+        />
+        <EducationForm
+          handleChange={handleEducationChange}
+          school={education.school}
+          degree={education.degree}
+          duration={education.duration}
+        />
+        <SkillsForm handleChange={handleSkillsChange} skills={skills} />
+        <Experience
+          handleClick={handleCount}
+          handleExp={handleExp}
+          handleExpTasks={handleExpTasks}
+          handleTaskCount={handleTaskCount}
+          count={experience.count}
+          taskCount={experience.taskCount}
+          inputs={experience.inputs}
+        />
+      </div>
     );
   }
-}
+  return (
+    <>
+      <Preview 
+      general={general} 
+      education={education}
+      skills={skills}
+      experience={experience}
+      />
+    </>
+  );
+};
 
 export default Document;

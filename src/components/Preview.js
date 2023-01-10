@@ -8,8 +8,8 @@ import { IconContext } from "react-icons";
 const Preview = (props) => {
   return (
     <div id="preview">
-      <div id="name-prev">{props.data.name}</div>
-      <div id="role">{props.data.role}</div>
+      <div id="name-prev">{props.general.name}</div>
+      <div id="role">{props.general.role}</div>
       <div id="divider"></div>
       <div id="contact-prev">
         <div id="email-prev">
@@ -18,7 +18,7 @@ const Preview = (props) => {
               <MdEmail />
             </div>
           </IconContext.Provider>
-          {props.data.email}
+          {props.general.email}
         </div>
         <div id="phone-prev">
         <IconContext.Provider value={{ color: "#0891b2", size: "1.4em" }}>
@@ -26,7 +26,7 @@ const Preview = (props) => {
               <MdSmartphone />
             </div>
           </IconContext.Provider>
-          {props.data.phone}
+          {props.general.phone}
           </div>
         <div id="location-prev">
           <IconContext.Provider value={{ color: "#0891b2", size: "1.4em" }}>
@@ -34,7 +34,7 @@ const Preview = (props) => {
               <MdLocationOn />
             </div>
           </IconContext.Provider>
-          {props.data.location}
+          {props.general.location}
         </div>
       </div>
       <div id="divider"></div>
@@ -42,15 +42,15 @@ const Preview = (props) => {
         <div id="edu-half">
           <div id="edu-title">Education</div>
           <div id="edu-details">
-            <div id="school-prev">{props.data.education.school}</div>
-            <div id="degree-prev">{props.data.education.degree}</div>
-            <div id="startend-prev">{props.data.education.duration}</div>
+            <div id="school-prev">{props.education.school}</div>
+            <div id="degree-prev">{props.education.degree}</div>
+            <div id="startend-prev">{props.education.duration}</div>
           </div>
         </div>
         <div id="skill-half">
           <div id="skills-title">Skills</div>
           <div id="skill-list">
-            {props.data.skills.map((skill) => {
+            {props.skills.map((skill) => {
               return <div className="skill-block">{skill}</div>;
             })}
           </div>
@@ -59,7 +59,7 @@ const Preview = (props) => {
       <div id="divider"></div>
       <div id="exp-title">Experience</div>
       <div id="prevExp">
-        {Array.from(Object.values(props.data.experience.inputs)).map(
+        {Array.from(Object.values(props.experience.inputs)).map(
           (e) => {
             return (
               <ExperiencePreview

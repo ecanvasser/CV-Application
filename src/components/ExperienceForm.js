@@ -16,7 +16,7 @@ const ExperienceForm = (props) => {
             id={props.id}
             placeholder="Company"
             onChange={props.handleExp}
-            value={props.inputs["company"] || ""}
+            // value={props.inputs.company || ""}
           />
           <input
             name="title"
@@ -24,7 +24,7 @@ const ExperienceForm = (props) => {
             id={props.id}
             placeholder="Job Title"
             onChange={props.handleExp}
-            value={props.inputs["title"] || ""}
+            // value={props.inputs["title"] || ""}
           />
           <input
             name="location"
@@ -32,7 +32,7 @@ const ExperienceForm = (props) => {
             id={props.id}
             placeholder="Location"
             onChange={props.handleExp}
-            value={props.inputs["location"] || ""}
+            // value={props.inputs["location"] || ""}
           />
           <input
             name="dates"
@@ -40,7 +40,7 @@ const ExperienceForm = (props) => {
             id={props.id}
             placeholder="Start & End Date"
             onChange={props.handleExp}
-            value={props.inputs["dates"] || ""}
+            // value={props.inputs["dates"] || ""}
           />
           {[...Array(props.taskCount)].map((e, i) => {
             return (
@@ -51,9 +51,9 @@ const ExperienceForm = (props) => {
                 className="job-task"
                 placeholder="Accomplishment/Task"
                 onChange={props.handleExpTasks}
-                value={
-                  props.inputs.tasks ? props.inputs.tasks[i] : ""
-                }
+                // value={
+                //   props.inputs.tasks ? props.inputs.tasks[i] : ""
+                // }
               />
             );
           })}
